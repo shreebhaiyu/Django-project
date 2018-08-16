@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>Bootstrap Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script>
+         $(document).ready(function() {
+    $(".clickMe").click(function() {
+      $(this).nextAll('.textBox:first').toggle();
+    });
+  });
+
+   </script>
+</head>
+
+<body style="background-color: #f1f1f1">
+
+<h3>Continue watching : {{ service }} </h3>
+
+
+
+  <div class="list-group">
+    {% for data1,data2 in all_data1 %}
+        <a class="clickMe" style="text-decoration: none">
+            <li><div style="background-color: cadetblue; " class="container-fluid" >
+                <h3 style="margin: 0; padding: 0; "> {{ data1 }} </h3>
+                type: {{ data2 }}
+            </div></li>
+        </a>
+
+        <div class="textBox" style="display: none;background-color: cadetblue"> {{ data2 }}</div>
+
+
+    {% endfor %}
+
+  </div>
+
+</body>
+</html>
